@@ -20,7 +20,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/fonts.css', // 전역 font 스타일
+    '~/assets/css/fonts.css', // 전역 font 스타일
+    '~/assets/css/default.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
