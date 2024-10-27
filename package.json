@@ -7,17 +7,19 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "format:fix": "prettier --write --ignore-path .gitignore .",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{css,scss,sass,html,vue}\" --ignore-path .gitignore",
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:js && yarn lint:style && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix && yarn lint:style --fix"
+    "lintfix": "prettier --write --list-different . && yarn lint:js --fix && yarn lint:style --fix",
+    "prepare": "husky"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
-    "sass": "^1.80.3",
+    "sass": "^1.54.9",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"
@@ -32,6 +34,8 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-vue": "^9.5.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "postcss-html": "^1.5.0",
     "prettier": "^2.7.1",
     "sass-loader": "^10.1.0",
@@ -39,5 +43,10 @@
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-config-standard": "^28.0.0"
+  },
+  "lint-staged": {
+    "*.{js,vue,json,css,scss,md,html}": [
+      "yarn format:fix"
+    ]
   }
 }
